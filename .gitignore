@@ -50,3 +50,6 @@ Thumbs.db
 
 # API Keys
 src/configs/api-keys.ts
+
+# index.html, because it contains Facebook App's ID
+src/index.html
