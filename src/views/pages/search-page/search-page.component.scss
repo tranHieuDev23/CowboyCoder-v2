@@ -1,0 +1,18 @@
+@import "src/configs/variables.scss";
+
+#search:focus {
+    border-color: #ced4da;
+    box-shadow: none;
+}
+
+#search-submit {
+    border-color: $color-element-background;
+    background: $color-element-background;
+    color: $color-accent;
+
+    &:hover, &:focus {
+        border-color: $color-accent;
+        background: $color-accent;
+        color: $color-text-on-accent;
+    }
+}

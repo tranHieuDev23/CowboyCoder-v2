@@ -1,0 +1,67 @@
+<header>
+    <div class="container px-0">
+        <nav class="navbar px-0">
+            <div class="navbar-nav mr-auto">
+                <div class="item-text item-text-hoverable sidebar-toggler nav-item nav-link d-lg-none px-3"
+                    (click)="showSidebar()">
+                    <fa-icon [icon]="faBars"></fa-icon>
+                </div>
+            </div>
+            <div class="navbar-brand mx-auto">
+                <a routerLink="/">
+                    <h1 id="title" class="my-0">{{ blogTitle }}</h1>
+                </a>
+            </div>
+            <div class="navbar-nav ml-auto px-3">
+                <fa-icon [icon]="faBars" class="invisible"></fa-icon>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-md d-none d-lg-flex">
+            <div class="navbar-nav">
+                <a class="item-text item-text-hoverable nav-item nav-link" routerLink="/">{{ homePageText }}</a>
+                <a *ngFor="let c of categories" class="item-text item-text-hoverable nav-item nav-link"
+                    routerLink="/archive/category/{{ c.slug }}">{{ c.name }}</a>
+                <a class="item-text item-text-hoverable nav-item nav-link" routerLink="/tags-list">{{ tagsListPageText }}</a>
+                <a class="item-text item-text-hoverable nav-item nav-link" routerLink="/about">{{ aboutPageText }}</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <div class="nav-item nav-link">
+                    <form class="form-inline py-2" autocomplete="off" (ngSubmit)="performSearch();">
+                        <input #searchBoxLg class="search search-right" name="search" type="text"
+                            placeholder="Search here..." [(ngModel)]="searchQuery" />
+                        <button class="search-submit search-submit-right item-text btn btn-link" type="button"
+                            (click)="toggleSearchBox()">
+                            <fa-icon [icon]="searchIcon"></fa-icon>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div #sidebar id="sidebar" class="d-block d-lg-none fixed-top vh-100">
+            <nav class="nav flex-column">
+                <a class="item-text item-text-hoverable nav-item nav-link pt-3" (click)="hideSidebar()">
+                    <fa-icon [icon]="faArrowLeft"></fa-icon>
+                </a>
+                <a class="item-text item-text-hoverable nav-item nav-link" routerLink="/"
+                    (click)="hideSidebar()">{{ homePageText }}</a>
+                <a *ngFor="let c of categories" class="item-text item-text-hoverable nav-item nav-link"
+                    routerLink="/archive/category/{{ c.slug }}" (click)="hideSidebar()">{{ c.name }}</a>
+                <a class="item-text item-text-hoverable nav-item nav-link" routerLink="/tags-list"
+                    (click)="hideSidebar()">{{ tagsListPageText }}</a>
+                <a class="item-text item-text-hoverable nav-item nav-link" routerLink="/about"
+                    (click)="hideSidebar()">{{ aboutPageText }}</a>
+                <div class="nav-item nav-link pt-3">
+                    <form class="form-inline py-2" autocomplete="off" (ngSubmit)="performSearch(); hideSidebar();">
+                        <input #searchBoxSm class="search search-left" name="search" type="text"
+                            placeholder="Search here..." [(ngModel)]="searchQuery" />
+                        <button class="search-submit search-submit-left item-text btn btn-link pl-0" type="button"
+                            (click)="toggleSearchBox()">
+                            <fa-icon [icon]="searchIcon"></fa-icon>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div #overlay id="overlay" class="d-block d-lg-none" (click)="hideSidebar()"></div>
+    </div>
+</header>

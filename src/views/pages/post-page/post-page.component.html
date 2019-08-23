@@ -1,0 +1,77 @@
+<app-loading-screen></app-loading-screen>
+<div class="container px-0 py-md-4">
+    <div class="px-4 py-4 px-md-5 py-md-5 bg-white shadow-lg">
+        <div class="row">
+            <div *ngIf="post" class="col-12 mb-3">
+                <div class="categories-list mb-2">
+                    <a *ngFor="let category of post.categories" routerLink="/archive/category/{{ category.slug }}">
+                        <small
+                            class="category-item d-inline-block rounded-pill px-2 py-1 m-1 text-nowrap">{{ category.name }}</small>
+                    </a>
+                </div>
+                <h2 class="font-primary">{{ post.title }}</h2>
+                <p class="font-secondary">
+                    <small class="text-muted">
+                        <a routerLink="/archive/author/{{ post.author.slug }}">
+                            <img class="author-avatar d-inline mr-2 mt-2 rounded-circle"
+                                src="{{ post.author.profile_image }}" alt="{{ post.author | fullName }}" />
+                            {{ post.author | fullName }}
+                        </a>
+                        &nbsp;&middot;&nbsp;{{ post.published | date }}
+                    </small>
+                </p>
+            </div>
+            <div #content class="col-md-8">
+                <div *ngIf="post">
+                    <img class="img-fluid mb-3 rounded" src="{{ post.featured_image }}" />
+                    <div class="inner-html-content mb-4 mb-lg-5" [innerHtml]="post.body | safeHtml" highlightChildren></div>
+                    <div class="mb-4">
+                        <a *ngFor="let tag of post.tags" routerLink="/archive/tag/{{ tag.slug }}">
+                            <small class="tag-item text-nowrap">{{ tag.name }}</small>
+                        </a>
+                    </div>
+                </div>
+                <div class="mb-3 py-2 w-100 overflow-hidden">
+                    <div class="fb-like" attr.data-href="{{ baseUrl }}{{ router.url }}" data-width=""
+                        data-layout="standard" data-action="like" data-size="small" data-show-faces="true"
+                        data-share="true"></div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 mt-3 pr-md-1">
+                        <div *ngIf="prevPost" class="media text-left">
+                            <div class="media-body mr-3">
+                                <p class="text-muted mb-1 font-secondary"><small>{{ previousPostText }}</small></p>
+                                <a routerLink="{{ '/post/' + prevPost.slug }}">
+                                    <h5 class="font-primary">{{ prevPost.title }}</h5>
+                                </a>
+                            </div>
+                            <a routerLink="{{ '/post/' + prevPost.slug }}">
+                                <img class="preview-image rounded" src="{{ prevPost.featured_image }}"
+                                    alt="{{ prevPost.title }}" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-3 pl-md-1">
+                        <div *ngIf="nextPost" class="media text-right">
+                            <a routerLink="{{ '/post/' + nextPost.slug }}">
+                                <img class="preview-image rounded" src="{{ nextPost.featured_image }}"
+                                    alt="{{ nextPost.title }}" />
+                            </a>
+                            <div class="media-body ml-3">
+                                <p class="text-muted mb-1 font-secondary"><small>{{ nextPostText }}</small></p>
+                                <a routerLink="{{ '/post/' + nextPost.slug }}">
+                                    <h5 class="font-primary">{{ nextPost.title }}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fb-comments" attr.data-href="{{ baseUrl }}{{ router.url }}" data-width="100%"
+                    data-numposts="3"></div>
+            </div>
+            <div class="col-md-4">
+                <app-side-bar></app-side-bar>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="card border-0 mb-2">
+    <div id="image-wrapper" class="card-img">
+        <img src="{{ post.featured_image }}" alt="{{ post.title }}" />
+    </div>
+    <div class="card-img-overlay p-2 d-flex overflow-hidden">
+        <div class="mx-auto my-auto text-center">
+            <div id="categories-list" class="mb-2">
+                <a *ngFor="let category of post.categories" routerLink="/archive/category/{{ category.slug }}">
+                    <small class="category-item d-inline-block rounded-pill px-2 py-1 m-1 text-nowrap">{{ category.name }}</small>
+                </a>
+            </div>
+            <a routerLink="/post/{{ post.slug }}">
+                <h5 id="post-title" class="card-title font-primary">{{ post.title }}</h5>
+            </a>
+            <p class="card-text font-secondary">
+                <small class="text-white">
+                    <a routerLink="/archive/author/{{ post.author.slug }}" class="text-white">
+                        <img class="author-avatar d-inline mr-2 rounded-circle"
+                            src="{{ post.author.profile_image }}" alt="{{ post.author | fullName }}" />
+                        {{ post.author | fullName }}
+                    </a>
+                    &nbsp;&middot;&nbsp;{{ post.published | date }}
+                </small>
+            </p>
+        </div>
+    </div>
+</div>

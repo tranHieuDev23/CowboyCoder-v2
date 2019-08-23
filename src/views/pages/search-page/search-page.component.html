@@ -1,0 +1,24 @@
+<app-loading-screen></app-loading-screen>
+<div class="container px-0 py-md-4">
+    <div class="px-4 py-4 px-md-5 py-md-5 bg-white shadow-lg">
+        <div class="row">
+            <div class="col-md-8">
+                <form autocomplete="off" class="input-group mb-4" (ngSubmit)="performSearch()">
+                    <input name="search" id="search" type="text" class="form-control rounded-0 font-secondary"
+                        placeholder="Search here..." [(ngModel)]="query" />
+                    <div class="input-group-append">
+                        <button name="search-submit" id="search-submit" class="btn rounded-0" type="submit">
+                            <fa-icon [icon]="faSearch"></fa-icon>
+                        </button>
+                    </div>
+                </form>
+                <p *ngIf="posts.length === 0" class="font-secondary">{{ noResultText }}</p>
+                <app-post-excerpt-preview *ngFor="let post of posts" [post]="post">
+                </app-post-excerpt-preview>
+            </div>
+            <div class="col-md-4">
+                <app-side-bar></app-side-bar>
+            </div>
+        </div>
+    </div>
+</div>

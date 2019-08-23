@@ -1,0 +1,86 @@
+@import "src/configs/variables.scss";
+
+.inner-html-content {
+  font-family: $font-family-secondary;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-family-primary;
+  }
+
+  blockquote {
+    border-left: 10px solid unset;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+  }
+
+  blockquote:before {
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    text-align: center;
+    font-size: 80%;
+    color: #6c757d;
+  }
+
+  table {
+    border: 0 !important;
+    background-color: #ffffff;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    td,
+    th {
+      border: 1px solid #333333;
+      padding: 0.75rem;
+    }
+
+    thead {
+      background: #292b2c;
+      border-bottom: 1px solid #444444;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    tfoot {
+      font-weight: bold;
+      color: #ffffff;
+      background: #292b2c;
+      border-top: 1px solid #444444;
+    }
+
+    caption {
+      text-align: center;
+      font-size: 80%;
+    }
+  }
+
+  iframe {
+    max-width: 100%;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,27 @@
+@import "src/configs/variables.scss";
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-link {
+  border: 2px solid transparent;
+  margin-left: -2px;
+  font-family: $font-family-secondary;
+  color: $color-text-on-accent !important;
+  background-color: unset !important;
+
+  &:hover {
+    border-color: $color-accent;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.page-item.active .page-link {
+  border-color: $color-accent;
+}

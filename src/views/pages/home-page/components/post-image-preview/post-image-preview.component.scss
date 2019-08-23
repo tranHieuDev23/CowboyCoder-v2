@@ -1,0 +1,35 @@
+@import "src/configs/variables.scss";
+
+#image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 991.98px) and (min-width: 768px) {
+  #image-wrapper {
+    padding-bottom: 100%;
+  }
+}
+
+.card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#post-title {
+  color: white;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; 
+  overflow-y: hidden;
+}

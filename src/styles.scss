@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~katex/dist/katex.min.css";
+@import "~highlight.js/styles/atom-one-dark.css";
+@import "src/configs/variables.scss";
+@import "src/views/global-styles/inner-html-content.scss";
+@import "src/views/global-styles/items.scss";
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none !important;
+}

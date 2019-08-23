@@ -1,0 +1,98 @@
+@import "src/configs/variables.scss";
+
+.font-primary {
+  font-family: $font-family-primary !important;
+}
+
+.font-secondary {
+  font-family: $font-family-secondary !important;
+}
+
+.author-avatar {
+  width: 2rem;
+  height: 2rem;
+}
+
+.category-item {
+  background-color: $color-accent;
+  color: $color-text-on-accent;
+  font-family: $font-family-secondary;
+}
+
+.tag-item {
+  background-color: $color-accent;
+  color: $color-text-on-accent;
+  font-family: $font-family-secondary;
+  display: inline-block;
+  line-height: 24px;
+  height: 24px;
+  border-color: $color-accent;
+  padding-right: 8px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: 15px;
+  margin-bottom: 3px;
+
+  &::before {
+    content: "";
+    float: left;
+    width: 0;
+    height: 0;
+    position: relative;
+    top: 0;
+    left: -12px;
+    border-width: 12px 12px 12px 0;
+    border-style: solid;
+    border-color: transparent $color-accent transparent transparent;
+  }
+
+  &::after {
+    content: "";
+    float: left;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 2px;
+    position: relative;
+    top: 10px;
+    left: -12px;
+  }
+}
+
+.contact-button {
+  width: 2.5rem;
+  color: white !important;
+  text-align: center;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+
+  &.facebook {
+    background-color: #3b5998 !important;
+  }
+
+  &.twitter {
+    background-color: #0084b4;
+  }
+
+  &.linkedin {
+    background-color: #0e76a8;
+  }
+
+  &.instagram {
+    background-color: #e4405f;
+  }
+
+  &.pinterest {
+    background-color: #bd081c;
+  }
+
+  &.github {
+    background-color: #333333 !important;
+  }
+
+  &.email {
+    background-color: crimson !important;
+  }
+}

@@ -1,0 +1,107 @@
+@import "src/configs/variables.scss";
+
+header {
+  z-index: 3000;
+  background-color: $color-element-background;
+}
+
+#title {
+  font-family: $font-family-primary;
+  color: $color-accent !important;
+}
+
+.item-text {
+  font-family: $font-family-primary;
+  // font-size: 1.25rem;
+  color: $color-accent !important;
+
+  &.item-text-hoverable:hover {
+    background-color: $color-accent;
+    color: $color-element-background !important;
+    transition-duration: 150ms;
+  }
+}
+
+.search {
+  position: absolute;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 0px;
+  border: none;
+  outline: none;
+  background: none;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+  color: $color-accent;
+  font-family: $font-family-primary;
+
+  &.open {
+    width: 200px;
+    border-bottom: 1px solid $color-accent;
+    cursor: text;
+  }
+
+  &-left {
+    left: 0;
+    margin-left: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  &-right {
+    right: 0;
+    margin-right: 1rem;
+    padding-right: 2rem;
+  }
+}
+
+.search-submit {
+  display: block;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+
+  &-left {
+    left: 0;
+    margin-left: 1rem;
+  }
+
+  &-right {
+    right: 0;
+    margin-right: 1rem;
+  }
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -240px;
+  width: 240px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  transition-duration: 200ms;
+  z-index: 3000;
+  background-color: $color-element-background;
+
+  &.show {
+    left: 0;
+  }
+}
+
+#overlay {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: background-color 200ms;
+  z-index: 2000;
+
+  &.active {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}

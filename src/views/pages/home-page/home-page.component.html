@@ -1,0 +1,26 @@
+<app-loading-screen></app-loading-screen>
+<div class="container px-0 py-md-4">
+    <div class="px-4 py-4 px-md-5 py-md-5 bg-white shadow-lg">
+        <div *ngIf="latestPosts" class="row mb-3">
+            <h3 class="col-12 font-primary mb-3 px-md-1">{{ latestPostsText }}</h3>
+            <div class="col-md-6 px-md-1" *ngFor="let post of latestPosts.slice(0, 2)">
+                <app-post-image-preview [post]="post"></app-post-image-preview>
+            </div>
+            <div class="col-md-4 px-md-1" *ngFor="let post of latestPosts.slice(2)">
+                <app-post-image-preview [post]="post"></app-post-image-preview>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 px-md-1">
+                <div *ngFor="let category of categories; let idx = index">
+                    <h3 class="font-primary mb-3">{{ category.name }}</h3>
+                    <app-post-excerpt-preview *ngFor="let post of categoryLatestPosts[idx]" [post]="post">
+                    </app-post-excerpt-preview>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <app-side-bar></app-side-bar>
+            </div>
+        </div>
+    </div>
+</div>
