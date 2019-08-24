@@ -1,9 +1,9 @@
 {
   "name": "cowboy-coder",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "build:ssr && serve:ssr",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -13,7 +13,7 @@
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run cowboy-coder:server:production --bundleDependencies all"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~8.2.0",
     "@angular/common": "~8.2.0",
@@ -29,6 +29,11 @@
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
     "buttercms": "^1.1.5",
     "express": "^4.15.2",
+    "bootstrap": "^4.3.1",
+    "@fortawesome/angular-fontawesome": "^0.4.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "html-loader": "^0.5.5",
     "highlight.js": "^9.15.9",
     "katex": "^0.11.0",
     "ngx-highlightjs": "^3.0.3",
@@ -41,15 +46,10 @@
     "@angular/cli": "~8.2.0",
     "@angular/compiler-cli": "~8.2.0",
     "@angular/language-service": "~8.2.0",
-    "@fortawesome/angular-fontawesome": "^0.4.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.21",
-    "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
-    "bootstrap": "^4.3.1",
     "codelyzer": "^5.0.0",
-    "html-loader": "^0.5.5",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -63,5 +63,21 @@
     "tslint": "~5.15.0",
     "typescript": "~3.5.3",
     "webpack-cli": "^3.1.0"
-  }
+  },
+  "description": "A simple and customizable ButterCMS theme, made with Angular 8",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tranHieuDev23/CowboyCoder-v2.git"
+  },
+  "keywords": [
+    "buttercms",
+    "angular",
+    "blog"
+  ],
+  "author": "Tran Minh Hieu <tranhieu23.code@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tranHieuDev23/CowboyCoder-v2/issues"
+  },
+  "homepage": "https://github.com/tranHieuDev23/CowboyCoder-v2#readme"
 }
