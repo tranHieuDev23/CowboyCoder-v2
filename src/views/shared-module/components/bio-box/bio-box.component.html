@@ -1,4 +1,4 @@
-<div *ngIf="author" class="media">
+<div *ngIf="author" class="media mb-3">
     <img id="avatar" class="mr-3" src="{{ author.profile_image }}" alt="{{ author | fullName }}" />
     <div class="media-body">
         <a routerLink="/archive/author/{{ author.slug }}">
