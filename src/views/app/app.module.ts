@@ -11,7 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SharedModule } from '../shared-module/shared-module.module';
 
 import cpp from 'highlight.js/lib/languages/cpp';
-import cs from 'highlight.js/lib/languages/cs';
 import css from 'highlight.js/lib/languages/css';
 import java from 'highlight.js/lib/languages/java';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -23,7 +22,6 @@ import xml from 'highlight.js/lib/languages/xml';
 
 const HLJS_LANGUAGE = () => [
   { name: 'cpp', func: cpp },
-  { name: 'cs', func: cs },
   { name: 'css', func: css },
   { name: 'java', func: java },
   { name: 'javascript', func: javascript },
@@ -53,7 +51,7 @@ const HLJS_LANGUAGE = () => [
       useValue: {
         languages: HLJS_LANGUAGE,
         configs: {
-          
+
         }
       }
     }

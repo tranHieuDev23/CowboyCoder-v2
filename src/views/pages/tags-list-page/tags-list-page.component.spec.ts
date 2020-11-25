@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TagsListPageComponent } from './tags-list-page.component';
 
@@ -6,7 +6,7 @@ describe('TagsListPageComponent', () => {
   let component: TagsListPageComponent;
   let fixture: ComponentFixture<TagsListPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TagsListPageComponent ]
     })

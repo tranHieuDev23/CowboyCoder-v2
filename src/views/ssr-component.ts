@@ -1,9 +1,10 @@
 import { ActivatedRoute, Params, Router } from "@angular/router";
-import { OnInit, Inject, PLATFORM_ID, Optional } from "@angular/core";
+import { OnInit, Inject, PLATFORM_ID, Optional, Directive } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import { RESPONSE } from "@nguniversal/express-engine/tokens";
 import { TransferState } from "@angular/platform-browser";
 
+@Directive()
 export abstract class SSRComponent implements OnInit {
   protected readonly isBrowser: boolean
 
