@@ -34,7 +34,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "html-loader": "^0.5.5",
-    "highlight.js": "^9.15.9",
+    "highlight.js": "^10.1.2",
     "katex": "^0.11.0",
     "ngx-highlightjs": "^3.0.3",
     "rxjs": "~6.4.0",
