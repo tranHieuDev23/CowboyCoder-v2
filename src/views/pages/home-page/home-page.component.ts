@@ -40,20 +40,20 @@ export class HomePageComponent extends SSRComponent {
   }
 
   onBrowserInit() {
-    const status = this.transferState.get(KEY_STATUS, null);
-    this.transferState.set(KEY_STATUS, null);
+    const status = this.transferState.get<string>(KEY_STATUS, null);
+    this.transferState.set<string>(KEY_STATUS, null);
     if (status === STATUS_404) {
       this.navigateToError(404);
       return;
     }
-    
-    const latestPosts = this.transferState.get(KEY_LATEST_POSTS, null);
-    this.transferState.set(KEY_LATEST_POSTS, null);
+
+    const latestPosts = this.transferState.get<Post[]>(KEY_LATEST_POSTS, null);
+    this.transferState.set<Post[]>(KEY_LATEST_POSTS, null);
     if (latestPosts !== null) {
-      const categories = this.transferState.get(KEY_CATEGORIES, null);
-      const categoryLatestPosts = this.transferState.get(KEY_CATEGORY_LATEST_POSTS, null);
-      this.transferState.set(KEY_CATEGORIES, null);
-      this.transferState.set(KEY_CATEGORY_LATEST_POSTS, null);
+      const categories = this.transferState.get<Category[]>(KEY_CATEGORIES, null);
+      const categoryLatestPosts = this.transferState.get<Post[][]>(KEY_CATEGORY_LATEST_POSTS, null);
+      this.transferState.set<Category[]>(KEY_CATEGORIES, null);
+      this.transferState.set<Post[][]>(KEY_CATEGORY_LATEST_POSTS, null);
       this.setupView(latestPosts, categories, categoryLatestPosts);
       if ((<any>window).FB)
         (<any>window).FB.XFBML.parse();
@@ -101,7 +101,7 @@ export class HomePageComponent extends SSRComponent {
   onServerInit() {
     if (this.response.locals.status === STATUS_404) {
       this.navigateToError(404);
-      this.transferState.set(KEY_STATUS, STATUS_404);
+      this.transferState.set<string>(KEY_STATUS, STATUS_404);
       this.response.status(404);
       return;
     }
@@ -109,9 +109,9 @@ export class HomePageComponent extends SSRComponent {
     const categories = this.response.locals.categories;
     const categoryLatestPosts = this.response.locals.categoryLatestPosts;
     this.setupView(latestPosts, categories, categoryLatestPosts);
-    this.transferState.set(KEY_LATEST_POSTS, latestPosts);
-    this.transferState.set(KEY_CATEGORIES, categories);
-    this.transferState.set(KEY_CATEGORY_LATEST_POSTS, categoryLatestPosts);
+    this.transferState.set<Post[]>(KEY_LATEST_POSTS, latestPosts);
+    this.transferState.set<Category[]>(KEY_CATEGORIES, categories);
+    this.transferState.set<Post[][]>(KEY_CATEGORY_LATEST_POSTS, categoryLatestPosts);
   }
 
   private setupView(latestPosts: Post[], categories: Category[], categoryLatestPosts: Post[][]): void {

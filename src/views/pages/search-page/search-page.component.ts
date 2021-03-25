@@ -47,17 +47,17 @@ export class SearchPageComponent implements OnInit {
   }
 
   onBrowserInit(params: Params): void {
-    const status = this.transferState.get(KEY_STATUS, null);
+    const status = this.transferState.get<string>(KEY_STATUS, null);
     if (status === STATUS_404) {
       this.navigateToError(404);
       return;
     }
 
-    let query = this.transferState.get(KEY_QUERY, null);
-    this.transferState.set(KEY_QUERY, null);
+    let query = this.transferState.get<string>(KEY_QUERY, null);
+    this.transferState.set<string>(KEY_QUERY, null);
     if (query !== null) {
-      const posts = this.transferState.get(KEY_POSTS, []);
-      this.transferState.set(KEY_POSTS, null);
+      const posts = this.transferState.get<Post[]>(KEY_POSTS, []);
+      this.transferState.set<Post[]>(KEY_POSTS, null);
       this.setupView(query, posts);
       if ((<any>window).FB)
         (<any>window).FB.XFBML.parse();
@@ -92,7 +92,7 @@ export class SearchPageComponent implements OnInit {
   onServerInit(params: Params): void {
     if (this.response.locals.status === STATUS_404) {
       this.navigateToError(404);
-      this.transferState.set(KEY_STATUS, STATUS_404);
+      this.transferState.set<string>(KEY_STATUS, STATUS_404);
       this.response.status(404);
       return;
     }
@@ -103,8 +103,8 @@ export class SearchPageComponent implements OnInit {
     }
     const posts = this.response.locals.posts;
     this.setupView(query, posts);
-    this.transferState.set(KEY_QUERY, query);
-    this.transferState.set(KEY_POSTS, posts);
+    this.transferState.set<string>(KEY_QUERY, query);
+    this.transferState.set<Post[]>(KEY_POSTS, posts);
     return;
   }
 

@@ -45,8 +45,8 @@ export class NavBarComponent extends SSRComponent {
   }
 
   onBrowserInit() {
-    const categories = this.transferState.get(KEY_CATEGORIES, null);
-    this.transferState.set(KEY_CATEGORIES, null);
+    const categories = this.transferState.get<Category[]>(KEY_CATEGORIES, null);
+    this.transferState.set<Category[]>(KEY_CATEGORIES, null);
     if (categories !== null) {
       this.categories = categories;
       return;
@@ -63,7 +63,7 @@ export class NavBarComponent extends SSRComponent {
   onServerInit() {
     const categories = this.response.locals.categories;
     this.categories = categories;
-    this.transferState.set(KEY_CATEGORIES, categories);
+    this.transferState.set<Category[]>(KEY_CATEGORIES, categories);
   }
 
   showSidebar(): void {

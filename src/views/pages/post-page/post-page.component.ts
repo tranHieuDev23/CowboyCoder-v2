@@ -22,7 +22,7 @@ export class PostPageComponent extends SSRComponent {
   @ViewChild(LoadingScreenComponent, { static: true }) private loadingScreen: LoadingScreenComponent;
   @ViewChild('content', { static: true }) private contentContainer: ElementRef;
   post: Post;
-  nextPost: Post; 
+  nextPost: Post;
   prevPost: Post;
   baseUrl: string = GLOBAL_CONFIGS.GENERAL_CONFIGS.BLOG_URL;
   previousPostText: string = GLOBAL_CONFIGS.POST_PAGE_CONFIGS.PREVIOUS_POST_TEXT;
@@ -41,15 +41,15 @@ export class PostPageComponent extends SSRComponent {
   }
 
   onBrowserInit(params: Params): void {
-    const status = this.transferState.get(KEY_STATUS, null);
-    this.transferState.set(KEY_STATUS, null);
+    const status = this.transferState.get<string>(KEY_STATUS, null);
+    this.transferState.set<string>(KEY_STATUS, null);
     if (status === STATUS_404) {
       this.navigateToError(404);
       return;
     }
 
-    const data = this.transferState.get(KEY_DATA, null);
-    this.transferState.set(KEY_DATA, null);
+    const data = this.transferState.get<any>(KEY_DATA, null);
+    this.transferState.set<any>(KEY_DATA, null);
     if (data !== null) {
       this.setupView(data);
       if ((<any>window).FB)
@@ -77,13 +77,13 @@ export class PostPageComponent extends SSRComponent {
   onServerInit(): void {
     if (this.response.locals.status === STATUS_404) {
       this.navigateToError(404);
-      this.transferState.set(KEY_STATUS, STATUS_404);
+      this.transferState.set<string>(KEY_STATUS, STATUS_404);
       this.response.status(404);
       return;
     }
 
     const data = this.response.locals.data;
-    this.transferState.set(KEY_DATA, data);
+    this.transferState.set<any>(KEY_DATA, data);
     this.setupView(data);
   }
 
@@ -97,12 +97,12 @@ export class PostPageComponent extends SSRComponent {
 
   private updateSEOMetaTags(post: Post): void {
     this.metaService.addTags([
-      {name: 'description', content: post.meta_description},
-      {property: 'og:url', content: this.router.url},
-      {property: 'og:title', content: post.title},
-      {property: 'og:description', content: post.meta_description},
-      {property: 'og:image', content: post.featured_image},
-      {property: 'og:type', content: 'article'},
+      { name: 'description', content: post.meta_description },
+      { property: 'og:url', content: this.router.url },
+      { property: 'og:title', content: post.title },
+      { property: 'og:description', content: post.meta_description },
+      { property: 'og:image', content: post.featured_image },
+      { property: 'og:type', content: 'article' },
     ])
   }
 }

@@ -40,16 +40,16 @@ export class ArchivePageComponent extends SSRComponent {
   }
 
   onBrowserInit(params: Params): void {
-    const status = this.transferState.get(KEY_STATUS, null);
-    this.transferState.set(KEY_STATUS, null);
+    const status = this.transferState.get<string>(KEY_STATUS, null);
+    this.transferState.set<string>(KEY_STATUS, null);
     if (status === STATUS_404) {
       this.navigateToError(404);
       return;
     }
 
     this.loadingScreen.show();
-    const transferData = this.transferState.get(KEY_DATA, null);
-    this.transferState.set(KEY_DATA, null);
+    const transferData = this.transferState.get<any>(KEY_DATA, null);
+    this.transferState.set<any>(KEY_DATA, null);
     if (transferData !== null) {
       const { type, slug, currentPage, metaData, postsData } = transferData;
       this.setupView(type, slug, currentPage, metaData, postsData);
@@ -98,7 +98,7 @@ export class ArchivePageComponent extends SSRComponent {
   onServerInit(): void {
     if (this.response.locals.status === STATUS_404) {
       this.navigateToError(404);
-      this.transferState.set(KEY_STATUS, STATUS_404);
+      this.transferState.set<string>(KEY_STATUS, STATUS_404);
       this.response.status(404);
       return;
     }
@@ -109,7 +109,7 @@ export class ArchivePageComponent extends SSRComponent {
     const metaData = this.response.locals.meta;
     const postsData = this.response.locals.posts;
     this.setupView(type, slug, currentPage, metaData, postsData);
-    this.transferState.set(KEY_DATA, { type, slug, currentPage, metaData, postsData });
+    this.transferState.set<any>(KEY_DATA, { type, slug, currentPage, metaData, postsData });
   }
 
   private setupView(type: string, slug: string, currentPage: number, metaData: any, postsData: any): void {
@@ -133,8 +133,8 @@ export class ArchivePageComponent extends SSRComponent {
       return GLOBAL_CONFIGS.ARCHIVE_PAGE_CONFIGS.ARCHIVE_PAGE_TITLE_CATEGORY(metaData.data.name, currentPage);
     if (type === 'tag')
       return GLOBAL_CONFIGS.ARCHIVE_PAGE_CONFIGS.ARCHIVE_PAGE_TITLE_TAG(metaData.data.name, currentPage);
-    const authorName = GLOBAL_CONFIGS.GENERAL_CONFIGS.SHOW_FIRST_NAME_FIRST 
-      ? `${metaData.data.first_name} ${metaData.data.last_name}` 
+    const authorName = GLOBAL_CONFIGS.GENERAL_CONFIGS.SHOW_FIRST_NAME_FIRST
+      ? `${metaData.data.first_name} ${metaData.data.last_name}`
       : `${metaData.data.last_name} ${metaData.data.first_name}`;
     return GLOBAL_CONFIGS.ARCHIVE_PAGE_CONFIGS.ARCHIVE_PAGE_TITLE_AUTHOR(authorName, currentPage);
   }

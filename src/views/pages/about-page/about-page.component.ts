@@ -35,8 +35,8 @@ export class AboutPageComponent extends SSRComponent {
   }
 
   onBrowserInit() {
-    const authors = this.transferState.get(KEY_AUTHORS, null);
-    this.transferState.set(KEY_AUTHORS, null);
+    const authors = this.transferState.get<Author[]>(KEY_AUTHORS, null);
+    this.transferState.set<Author[]>(KEY_AUTHORS, null);
     if (authors !== null) {
       this.setupView(authors);
       if ((<any>window).FB)
@@ -61,7 +61,7 @@ export class AboutPageComponent extends SSRComponent {
   onServerInit() {
     const authors = this.response.locals.authors;
     this.setupView(authors);
-    this.transferState.set(KEY_AUTHORS, authors);
+    this.transferState.set<Author[]>(KEY_AUTHORS, authors);
   }
 
   private setupView(authors: Author[]): void {

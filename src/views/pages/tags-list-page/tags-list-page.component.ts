@@ -35,15 +35,15 @@ export class TagsListPageComponent extends SSRComponent {
   }
 
   onBrowserInit(): void {
-    const status = this.transferState.get(KEY_STATUS, null);
-    this.transferState.set(KEY_STATUS, null);
+    const status = this.transferState.get<string>(KEY_STATUS, null);
+    this.transferState.set<string>(KEY_STATUS, null);
     if (status === STATUS_404) {
       this.navigateToError(404);
       return;
     }
 
-    const tags = this.transferState.get(KEY_TAGS, null);
-    this.transferState.set(KEY_TAGS, null);
+    const tags = this.transferState.get<Tag[]>(KEY_TAGS, null);
+    this.transferState.set<Tag[]>(KEY_TAGS, null);
     if (tags !== null) {
       this.setupView(tags);
       if ((<any>window).FB)
@@ -68,25 +68,25 @@ export class TagsListPageComponent extends SSRComponent {
   onServerInit(): void {
     if (this.response.locals.status === STATUS_404) {
       this.navigateToError(404);
-      this.transferState.set(KEY_STATUS, STATUS_404);
+      this.transferState.set<string>(KEY_STATUS, STATUS_404);
       this.response.status(404);
       return;
     }
     const tags = this.response.locals.tags;
     this.setupView(tags);
-    this.transferState.set(KEY_TAGS, tags);
+    this.transferState.set<Tag[]>(KEY_TAGS, tags);
   }
 
   private setupView(tags: Tag[]): void {
     this.tags = tags;
     this.titleService.setTitle(GLOBAL_CONFIGS.TAGS_LIST_PAGE_CONFIGS.TAGS_LIST_PAGE_TITLE);
     this.metaService.addTags([
-      {name: 'description', content: GLOBAL_CONFIGS.TAGS_LIST_PAGE_CONFIGS.TAGS_LIST_PAGE_TITLE},
-      {property: 'og:url', content: this.router.url},
-      {property: 'og:title', content: GLOBAL_CONFIGS.TAGS_LIST_PAGE_CONFIGS.TAGS_LIST_PAGE_TITLE},
-      {property: 'og:description', content: GLOBAL_CONFIGS.GENERAL_CONFIGS.BLOG_DESCRIPTION},
-      {property: 'og:image', content: GLOBAL_CONFIGS.GENERAL_CONFIGS.BLOG_FEATURE_IMAGE_URL},
-      {property: 'og:type', content: 'website'},
+      { name: 'description', content: GLOBAL_CONFIGS.TAGS_LIST_PAGE_CONFIGS.TAGS_LIST_PAGE_TITLE },
+      { property: 'og:url', content: this.router.url },
+      { property: 'og:title', content: GLOBAL_CONFIGS.TAGS_LIST_PAGE_CONFIGS.TAGS_LIST_PAGE_TITLE },
+      { property: 'og:description', content: GLOBAL_CONFIGS.GENERAL_CONFIGS.BLOG_DESCRIPTION },
+      { property: 'og:image', content: GLOBAL_CONFIGS.GENERAL_CONFIGS.BLOG_FEATURE_IMAGE_URL },
+      { property: 'og:type', content: 'website' },
     ]);
   }
 }
