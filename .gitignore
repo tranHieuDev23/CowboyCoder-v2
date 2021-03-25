@@ -48,6 +48,3 @@ Thumbs.db
 
 # Local repository
 .oldgit
-
-# API Keys
-src/configs/api-keys.ts
