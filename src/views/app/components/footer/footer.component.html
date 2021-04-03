@@ -1,14 +1,16 @@
 <footer>
     <div class="container pt-4 pb-3 text-white">
-        <h3 class="font-primary">Contact Us</h3>
+        <h3 class="font-primary">Contacts</h3>
         <p>
-            <a class="contact-button facebook btn mr-2" *ngIf="facebookContact" href="{{ facebookContact }}" target="blank">
+            <a class="contact-button facebook btn mr-2" *ngIf="facebookContact" href="{{ facebookContact }}"
+                target="blank">
                 <fa-icon [icon]="faFacebookF"></fa-icon>
             </a>
             <a class="contact-button github btn mr-2" *ngIf="githubContact" href="{{ githubContact }}" target="blank">
                 <fa-icon [icon]="faGitHub"></fa-icon>
             </a>
-            <a class="contact-button email btn mr-2" *ngIf="emailContact" href="{{ 'mailto:' + emailContact }}" target="blank">
+            <a class="contact-button email btn mr-2" *ngIf="emailContact" href="{{ 'mailto:' + emailContact }}"
+                target="blank">
                 <fa-icon [icon]="faEnvelope"></fa-icon>
             </a>
         </p>
