@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "build:ssr && serve:ssr",
+    "postinstall": "npm run build:ssr",
+    "start": "npm run serve:ssr",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
