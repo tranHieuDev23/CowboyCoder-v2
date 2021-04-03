@@ -7,6 +7,12 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+import aboutPageMiddleware from 'src/controllers/server-routing/about-page';
+import archiveMiddleware from 'src/controllers/server-routing/archive-page';
+import homePageMiddleware from 'src/controllers/server-routing/home-page';
+import postPageMiddleware from 'src/controllers/server-routing/post-page';
+import searchPageMiddleware from 'src/controllers/server-routing/search-page';
+import tagsListPageMiddleware from 'src/controllers/server-routing/tags-list-page';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -30,6 +36,13 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Universal engine
+  server.get('/about', aboutPageMiddleware);
+  server.get('/archive/:type/:slug', archiveMiddleware);
+  server.get('/archive/:type/:slug/:page', archiveMiddleware);
+  server.get('/post/:slug', postPageMiddleware);
+  server.get('/search', searchPageMiddleware);
+  server.get('/tags-list', tagsListPageMiddleware);
+  server.get('/', homePageMiddleware);
   server.get('*', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
