@@ -10,6 +10,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 })
 export class BioBoxComponent {
   @Input() author: Author;
+  @Input() vertical: boolean = false;
+
   faFacebookF = faFacebookF;
   faTwitter = faTwitter;
   faInstagram = faInstagram;

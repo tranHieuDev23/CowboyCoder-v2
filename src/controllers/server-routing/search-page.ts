@@ -4,7 +4,7 @@ import { GLOBAL_CONFIGS } from '../../configs/global-config';
 import { STATUS_404 } from '../../constants';
 
 export default function searchPageMiddleware(req: Request, res: Response) {
-  const query = req.query.query;
+  const query = req.query.query as string;
   if (query !== undefined) {
     butterService.post.search(query, {
       page: 1,

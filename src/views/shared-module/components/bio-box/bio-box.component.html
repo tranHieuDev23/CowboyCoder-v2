@@ -1,5 +1,6 @@
+<img *ngIf="vertical" id="avatar" class="mb-3" src="{{ author.profile_image }}" alt="{{ author | fullName }}" />
 <div *ngIf="author" class="media mb-3">
-    <img id="avatar" class="mr-3" src="{{ author.profile_image }}" alt="{{ author | fullName }}" />
+    <img *ngIf="!vertical" id="avatar" class="mr-3" src="{{ author.profile_image }}" alt="{{ author | fullName }}" />
     <div class="media-body">
         <a routerLink="/archive/author/{{ author.slug }}">
             <h4 class="font-primary mb-0">{{ author | fullName }}</h4>
@@ -8,22 +9,28 @@
             <p class="text-muted mb-1"><small>{{ author.title }}</small></p>
             <p>{{ author.bio }}</p>
             <p>
-                <a *ngIf="author.facebook_url !== ''" class="contact-button facebook btn mr-2 mb-2" [href]="author.facebook_url" target="blank">
+                <a *ngIf="author.facebook_url !== ''" class="contact-button facebook btn mr-2 mb-2"
+                    [href]="author.facebook_url" target="blank">
                     <fa-icon [icon]="faFacebookF"></fa-icon>
                 </a>
-                <a *ngIf="author.twitter_handle !== ''" class="contact-button twitter btn mr-2 mb-2" href="https://twitter.com/{{ author.twitter_handle }}" target="blank">
+                <a *ngIf="author.twitter_handle !== ''" class="contact-button twitter btn mr-2 mb-2"
+                    href="https://twitter.com/{{ author.twitter_handle }}" target="blank">
                     <fa-icon [icon]="faTwitter"></fa-icon>
                 </a>
-                <a *ngIf="author.instagram_url !== ''" class="contact-button instagram btn mr-2 mb-2" [href]="author.instagram_url" target="blank">
+                <a *ngIf="author.instagram_url !== ''" class="contact-button instagram btn mr-2 mb-2"
+                    [href]="author.instagram_url" target="blank">
                     <fa-icon [icon]="faInstagram"></fa-icon>
                 </a>
-                <a *ngIf="author.pinterest_url !== ''" class="contact-button pinterest btn mr-2 mb-2" [href]="author.pinterest_url" target="blank">
+                <a *ngIf="author.pinterest_url !== ''" class="contact-button pinterest btn mr-2 mb-2"
+                    [href]="author.pinterest_url" target="blank">
                     <fa-icon [icon]="faPinterest"></fa-icon>
                 </a>
-                <a *ngIf="author.linkedin_url !== ''" class="contact-button linkedin btn mr-2 mb-2" [href]="author.linkedin_url" target="blank">
+                <a *ngIf="author.linkedin_url !== ''" class="contact-button linkedin btn mr-2 mb-2"
+                    [href]="author.linkedin_url" target="blank">
                     <fa-icon [icon]="faLinkedinIn"></fa-icon>
                 </a>
-                <a *ngIf="author.email !== ''" class="contact-button email btn mr-2 mb-2" href="mailto:{{ author.email }}" target="blank">
+                <a *ngIf="author.email !== ''" class="contact-button email btn mr-2 mb-2"
+                    href="mailto:{{ author.email }}" target="blank">
                     <fa-icon [icon]="faEnvelope"></fa-icon>
                 </a>
             </p>

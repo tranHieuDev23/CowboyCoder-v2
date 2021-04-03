@@ -1,13 +1,13 @@
 <h1 style="text-align: center;">Cowboy Coder - v2</h1>
 <p style="text-align: center;">A simple and customizable ButterCMS theme, made with Angular 8</p>
 
-Table of contents
--------
-* [Description](#description)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Config](#config)
-* [License](#license)
+## Table of contents
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Config](#config)
+- [License](#license)
 
 <a name="description"></a>
 
@@ -15,7 +15,7 @@ Table of contents
 
 This project utilizes [ButterCMS](https://buttercms.com/) - a headless CMS providing a RESTful API for content management, allowing developers to focus only on designing the look.
 
-Like and comment features use [Facebook Social Plugin](https://developers.facebook.com/docs/plugins/), allowing visitors to like and comment using their Facebook accounts. The Facebook Javascript SDK script, however, has not been included yet. To use these features, you will have to add the script with your Facebook app's ID into ```src/index.html``` by yourself.
+Like and comment features use [Facebook Social Plugin](https://developers.facebook.com/docs/plugins/), allowing visitors to like and comment using their Facebook accounts. The Facebook Javascript SDK script, however, has not been included yet. To use these features, you will have to add the script with your Facebook app's ID into `src/index.html` by yourself.
 
 This project includes an [Angular 8](https://angular.io) front end and an [Express](https://expressjs.com) server for server-side rendering with Angular Universal.
 
@@ -33,15 +33,15 @@ npm install
 
 ## Usage
 
-* To build or serve the Angular 8 client: use the default Angular CLI commands ```ng build``` and ```ng serve```.
-* To build or serve the project with server-side rendering: ```npm run build:ssr``` and ```npm run serve:ssr```.
-* To build and serve the project immediately: ```npm start```.
+- To build or serve the Angular 8 client: use the default Angular CLI commands `ng build` and `ng serve`.
+- To build or serve the project with server-side rendering: `npm run build:ssr` and `npm run serve:ssr`.
+- To build and serve the project immediately: `npm start`.
 
 <a name="config"></a>
 
 ## Config
 
-### ```src/configs/global-config.ts```
+### `src/configs/global-config.ts`
 
 Here you can find the many configurations relating to the blog's content:
 
@@ -116,13 +116,17 @@ Here you can find the many configurations relating to the blog's content:
     <td>The text of the title of the latest posts section on the Home page.</td>
   </tr>
   <tr>
-    <td rowspan="2"><code>POST_PAGE_CONFIGS</code></td>
+    <td rowspan="3"><code>POST_PAGE_CONFIGS</code></td>
     <td><code>PREVIOUS_POST_TEXT</code></td>
     <td>The text of the link to the previous post on the Post page.</td>
   </tr>
   <tr>
     <td><code>NEXT_POST_TEXT</code></td>
     <td>The text of the link to the next post on the Post page.</td>
+  </tr>
+  <tr>
+    <td><code>ABOUT_AUTHOR_TEXT</code></td>
+    <td>The text of the title of the author description section on the sidebar.</td>
   </tr>
   <tr>
     <td rowspan="4"><code>ARCHIVE_PAGE_CONFIGS<br></code></td>
@@ -170,15 +174,15 @@ Here you can find the many configurations relating to the blog's content:
   </tr>
 </table>
 
-### ```src/configs/about-page-content.html```
+### `src/configs/about-page-content.html`
 
 Here you can edit the content inside About Page in HTML.
 
-### ```src/configs/footer-content.html```
+### `src/configs/footer-content.html`
 
 Here you can edit the content inside the footer in HTML.
 
-### ```src/configs/variables.scss```
+### `src/configs/variables.scss`
 
 Here you can find the variables relating to the typefaces and colors of the blog.
 

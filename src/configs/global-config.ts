@@ -30,7 +30,8 @@ export const GLOBAL_CONFIGS = {
     },
     POST_PAGE_CONFIGS: {
         PREVIOUS_POST_TEXT: 'Bài viết trước',
-        NEXT_POST_TEXT: 'Bài viết sau'
+        NEXT_POST_TEXT: 'Bài viết sau',
+        ABOUT_AUTHOR_TEXT: 'Về tác giả'
     },
     ARCHIVE_PAGE_CONFIGS: {
         ARCHIVE_PAGE_SIZE: 10,

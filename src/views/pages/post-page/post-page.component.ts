@@ -27,6 +27,7 @@ export class PostPageComponent extends SSRComponent {
   baseUrl: string = GLOBAL_CONFIGS.GENERAL_CONFIGS.BLOG_URL;
   previousPostText: string = GLOBAL_CONFIGS.POST_PAGE_CONFIGS.PREVIOUS_POST_TEXT;
   nextPostText: string = GLOBAL_CONFIGS.POST_PAGE_CONFIGS.NEXT_POST_TEXT;
+  aboutAuthorText: string = GLOBAL_CONFIGS.POST_PAGE_CONFIGS.ABOUT_AUTHOR_TEXT;
 
   constructor(
     public readonly router: Router,
