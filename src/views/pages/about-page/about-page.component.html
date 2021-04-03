@@ -1,17 +1,12 @@
 <app-loading-screen></app-loading-screen>
 <div class="container px-0 py-md-4">
     <div class="px-4 py-4 px-md-5 py-md-5 bg-white shadow-lg">
-        <div class="row mt-md-3 mb-4">
-            <div class="col-md-8">
-                <div *ngIf="aboutContent" class="mb-4">
-                    <div class="inner-html-content" [innerHtml]="aboutContent | safeHtml"></div>
-                </div>
-                <h3 class="mb-3 font-primary">{{ authorsListText }}</h3>
-                <app-bio-box *ngFor="let author of authors" [author]="author"></app-bio-box>
+        <div class="mt-md-3 mb-4">
+            <div *ngIf="aboutContent" class="mb-4">
+                <div class="inner-html-content" [innerHtml]="aboutContent | safeHtml"></div>
             </div>
-            <div class="col-md-4">
-                <app-side-bar></app-side-bar>
-            </div>
+            <h3 class="mb-3 font-primary">{{ authorsListText }}</h3>
+            <app-bio-box *ngFor="let author of authors" [author]="author"></app-bio-box>
         </div>
     </div>
 </div>
