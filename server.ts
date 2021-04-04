@@ -13,6 +13,7 @@ import homePageMiddleware from 'src/controllers/server-routing/home-page';
 import postPageMiddleware from 'src/controllers/server-routing/post-page';
 import searchPageMiddleware from 'src/controllers/server-routing/search-page';
 import tagsListPageMiddleware from 'src/controllers/server-routing/tags-list-page';
+import { butterService } from 'src/controllers/butterCMS.service';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -27,6 +28,17 @@ export function app(): express.Express {
 
   server.set('view engine', 'html');
   server.set('views', distFolder);
+
+  server.get('/sitemap.xml', (req, res) => {
+    butterService.feed.retrieve('sitemap')
+      .then((result) => {
+        res.set('Content-Type', 'text/xml')
+        res.end(result.data.data)
+      }, (error) => {
+        console.log(error);
+        res.status(404).end('Nothing. There is no sitemap.')
+      })
+  });
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
