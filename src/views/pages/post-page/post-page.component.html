@@ -22,9 +22,9 @@
             <div #content class="col-md-8">
                 <div *ngIf="post">
                     <img class="img-fluid mb-3 rounded" src="{{ post.featured_image }}" />
-                    <div id="content" class="inner-html-content mb-4 mb-lg-5" [innerHtml]="post.body | safeHtml"
+                    <div id="content" class="inner-html-content mb-3 mb-lg-4" [innerHtml]="post.body | safeHtml"
                         highlightChildren></div>
-                    <div class="mb-4">
+                    <div class="mb-3">
                         <a *ngFor="let tag of post.tags" routerLink="/archive/tag/{{ tag.slug }}">
                             <small class="tag-item text-nowrap">{{ tag.name }}</small>
                         </a>
@@ -35,7 +35,7 @@
                         data-layout="standard" data-action="like" data-size="small" data-show-faces="true"
                         data-share="true"></div>
                 </div>
-                <div class="row mb-4">
+                <div class="row mb-3">
                     <div class="col-md-6 mt-3 pr-md-1">
                         <div *ngIf="prevPost" class="media text-left">
                             <div class="media-body mr-3">
