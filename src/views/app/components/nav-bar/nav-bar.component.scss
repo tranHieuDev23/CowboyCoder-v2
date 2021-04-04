@@ -7,17 +7,17 @@ header {
 
 #title {
   font-family: $font-family-primary;
-  color: $color-accent !important;
+  color: $color-text-on-background !important;
 }
 
 .item-text {
   font-family: $font-family-primary;
   // font-size: 1.25rem;
-  color: $color-accent !important;
+  color: $color-text-on-background !important;
 
   &.item-text-hoverable:hover {
     background-color: $color-accent;
-    color: $color-element-background !important;
+    color: $color-text-on-accent !important;
     transition-duration: 150ms;
   }
 }
@@ -32,12 +32,12 @@ header {
   background: none;
   transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
   cursor: pointer;
-  color: $color-accent;
+  color: $color-text-on-background;
   font-family: $font-family-primary;
 
   &.open {
     width: 200px;
-    border-bottom: 1px solid $color-accent;
+    border-bottom: 1px solid $color-text-on-background;
     cursor: text;
   }
 
