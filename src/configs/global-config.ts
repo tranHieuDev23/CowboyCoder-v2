@@ -3,7 +3,7 @@ import { BUTTER_CMS_API_KEY } from './api-keys';
 export const GLOBAL_CONFIGS = {
     GENERAL_CONFIGS: {
         BLOG_TITLE: "ThatPenguinGuy",
-        BLOG_URL: "www.cowboycoder.tech",
+        BLOG_URL: "https://thatpenguinguy.herokuapp.com",
         BLOG_DESCRIPTION: "My name is Trần Minh Hiếu, and this blog is where I write about techs, games, software development and other stuffs that I like.",
         BLOG_FEATURE_IMAGE_URL: '/assets/sidebar-image.jpg',
         SHOW_FIRST_NAME_FIRST: false,
