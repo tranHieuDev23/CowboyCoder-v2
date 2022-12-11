@@ -37,7 +37,7 @@
     "@types/highlightjs": "^10.1.0",
     "bootstrap": "^4.5.3",
     "buttercms": "^1.2.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "highlight.js": "^10.4.0",
     "html-loader": "^0.5.5",
     "katex": "^0.12.0",
